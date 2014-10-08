@@ -1,0 +1,3 @@
+wdr_lookfront_homepage:
+    path:     /
+    defaults: { _controller: WdrLookfrontBundle:Default:index }

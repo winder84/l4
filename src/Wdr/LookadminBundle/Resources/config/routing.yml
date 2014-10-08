@@ -1,0 +1,3 @@
+wdr_lookadmin_homepage:
+    path:     /
+    defaults: { _controller: WdrLookadminBundle:Default:index }
