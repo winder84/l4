@@ -6,15 +6,17 @@
 
 		<table class="table records_list table-bordered table-striped">
 			<thead>
-			<tr>
-				<th>Name</th>
-				<th>Actions</th>
+			<tr class="text-center">
+				<th>Логин</th>
+				<th>Вкл.</th>
+				<th>Действия</th>
 			</tr>
 			</thead>
 			<tbody>
 			{% for entity in entities %}
 				<tr>
 					<td class="col-sm-6 control-label text-center"><a href="{{ path('admin_users__edit', { 'id': entity.id }) }}">{{ entity.username }}</a></td>
+					<td class="col-sm-3 control-label text-center">{{ entity.enabled }}</td>
 					<td class="col-sm-3 control-label text-center">
 						<a href="{{ path('admin_users__edit', { 'id': entity.id }) }}" class="btn btn-info">Редактировать</a>
 						<a href="{{ path('admin_users__delete', { 'id': entity.id }) }}" class="btn btn-danger">Удалить</a>
