@@ -1,3 +1,7 @@
+wdr_lookadmin_admin_users_:
+    resource: "@WdrLookadminBundle/Resources/config/routing/user.yml"
+    prefix:   /users/
+
 wdr_lookadmin_homepage:
     path:     /
     defaults: { _controller: WdrLookadminBundle:Default:index }

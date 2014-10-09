@@ -1,0 +1,30 @@
+admin_users_:
+    path:     /
+    defaults: { _controller: "WdrLookadminBundle:User:index" }
+
+admin_users__show:
+    path:     /{id}/show
+    defaults: { _controller: "WdrLookadminBundle:User:show" }
+
+admin_users__new:
+    path:     /new
+    defaults: { _controller: "WdrLookadminBundle:User:new" }
+
+admin_users__create:
+    path:     /create
+    defaults: { _controller: "WdrLookadminBundle:User:create" }
+    requirements: { _method: post }
+
+admin_users__edit:
+    path:     /{id}/edit
+    defaults: { _controller: "WdrLookadminBundle:User:edit" }
+
+admin_users__update:
+    path:     /{id}/update
+    defaults: { _controller: "WdrLookadminBundle:User:update" }
+    requirements: { _method: post|put }
+
+admin_users__delete:
+    path:     /{id}/delete
+    defaults: { _controller: "WdrLookadminBundle:User:delete" }
+    requirements: { _method: post|delete }

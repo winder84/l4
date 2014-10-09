@@ -1,0 +1,43 @@
+{% extends 'WdrLookadminBundle:Default:base.html.twig' %}
+
+{% block body -%}
+	<div class="container">
+		<h1>User list</h1>
+
+		<table class="table records_list table-bordered table-striped">
+			<thead>
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>Actions</th>
+			</tr>
+			</thead>
+			<tbody>
+			{% for entity in entities %}
+				<tr>
+					<td><a href="{{ path('admin_users__edit', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+					<td><a href="{{ path('admin_users__edit', { 'id': entity.id }) }}">{{ entity.username }}</a></td>
+					<td>
+						<ul>
+							<li>
+								<a href="{{ path('admin_users__show', { 'id': entity.id }) }}">show</a>
+							</li>
+							<li>
+								<a href="{{ path('admin_users__edit', { 'id': entity.id }) }}">edit</a>
+							</li>
+						</ul>
+					</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+
+		<ul>
+			<li>
+				<a href="{{ path('admin_users__new') }}">
+					Create a new entry
+				</a>
+			</li>
+		</ul>
+	</div>
+{% endblock %}
