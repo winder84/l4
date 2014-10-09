@@ -72,3 +72,6 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: Wdr\LookadminBundle\Entity\User
+    registration:
+        form:
+            type: wdr_user_registration

@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Wdr\LookadminBundle\Entity\User;
 use Wdr\LookadminBundle\Form\UserType;
+use Wdr\LookadminBundle\Form\Type\RegistrationFormType;
 
 /**
  * User controller.
@@ -62,9 +63,12 @@ class UserController extends Controller
      */
     private function createCreateForm(User $entity)
     {
-        $form = $this->createForm(new UserType(), $entity, array(
+        $form = $this->createForm(new RegistrationFormType(), $entity, array(
             'action' => $this->generateUrl('admin_users__create'),
             'method' => 'POST',
+			'attr'=>array(
+				'class'=>'form-horizontal'
+			),
         ));
 
         $form->add('submit', 'submit', array('label' => 'Create'));
@@ -103,8 +107,8 @@ class UserController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('WdrLookadminBundle:User:show.html.twig', array(
-            'entity'      => $entity,
+        return $this->render('FOSUserBundle:Profile:show.html.twig', array(
+            'user'      => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -126,7 +130,7 @@ class UserController extends Controller
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('WdrLookadminBundle:User:edit.html.twig', array(
+        return $this->render('FOSUserBundle:Profile:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -142,9 +146,13 @@ class UserController extends Controller
     */
     private function createEditForm(User $entity)
     {
-        $form = $this->createForm(new UserType(), $entity, array(
+        $form = $this->createForm(new RegistrationFormType(), $entity, array(
             'action' => $this->generateUrl('admin_users__update', array('id' => $entity->getId())),
             'method' => 'PUT',
+			'attr'=>array(
+				'role'=>'form',
+				'class'=>'form-horizontal'
+			),
         ));
 
         $form->add('submit', 'submit', array('label' => 'Update'));
