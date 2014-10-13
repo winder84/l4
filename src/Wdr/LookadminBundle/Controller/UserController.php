@@ -45,7 +45,7 @@ class UserController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('admin_users__show', array('id' => $entity->getId())));
+			return $this->redirect($this->generateUrl('admin_users_'));
         }
 
         return $this->render('WdrLookadminBundle:User:new.html.twig', array(
